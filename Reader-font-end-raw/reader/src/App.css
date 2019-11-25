@@ -1,0 +1,68 @@
+@import '~antd/dist/antd.css';
+@font-face {
+  font-family:'pacific';
+  src:url('/asserts/fonts/pacific.ttf')
+}
+.App {
+  text-align: center;
+}
+
+body {
+  background-color:
+}
+
+.App-logo {
+  height: 40vmin;
+}
+
+.App-header {
+  background-color: #282c34;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  font-size: calc(10px + 2vmin);
+  color: white;
+}
+
+.App-link {
+  color: #09d3ac;
+}
+
+
+.header {
+  display:flex;
+  align-items:center;
+  justify-content: flex-start;
+  height:8vh;
+  width:100%;
+  background-color: #cccccc;
+  border-radius:5px;
+  vertical-align: middle;
+}
+
+
+.logo-title{
+  font-size:5vh;
+  font-family:'pacifico';
+  padding-left:2vw;
+
+
+}
+.search-input {
+  width:30vw;
+  margin-left:40vw;
+
+}
+.login_register {
+  margin-left:3vw;
+}
+
+
+.login-container {
+  width:40vw;
+  margin:0 auto;
+  margin-top:10vh;
+
+}
