@@ -4,9 +4,9 @@ var router = express.Router();
 /* GET home page. */
 
 /**登录界面 */
-router.get('/admin', function (req, res, next) {
-  res.render("Signin");
-});
+// router.get('/admin', function (req, res, next) {
+//   res.render("Signin");
+// });
 
 /**登录验证 */
 
@@ -14,31 +14,25 @@ router.get('/admin', function (req, res, next) {
 router.get('/home', function (req, res, next) {
   res.render("Home");
 });
-router.post('/home',function (req, res, next){
-  res.render("Home");
-});
 
-
-/**用户 */
+//
+// /**用户 */
 router.get('/user', function (req, res, next) {
   res.render("User");
 });
-router.post('/change',function (req, res, next){
-  res.render("User");
-});
 
-
-/**添加用户 */
+//
+// /**添加用户 */
 router.get('/adduser', function (req, res, next) {
   res.render("Adduser");
 });
-
-/**编辑用户信息 */
+//
+// /**编辑用户信息 */
 router.get('/useredit', function (req, res, next) {
   res.render("Useredit");
 });
 
-/**文件管理 */
+// /**文件管理 */
 router.get('/file', function (req, res, next) {
   res.render("File");
 });
