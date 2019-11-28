@@ -33,7 +33,7 @@ app.use('/login',userLogin);
 app.use('/register',userRegister);
 app.use('/upload',upload);
 app.use("/testApi",testApiRouter);
-app.use('/admin/login',adminLogin);
+app.use('/admin',adminLogin);
 app.use('/', indexRouter);
 app.use('/users', usersRouter);
 // catch 404 and forward to error handler

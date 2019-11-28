@@ -15,11 +15,11 @@ router.post('/',function(req,res,next) {
   connection.query(query1,function(err,result) {
     console.log(err);
     console.log(result);
-
     if(result.length == 0) {
       res.send(err);
     }else {
-      res.send(true);
+      // res.send(true);
+      res.redirect('/');
     }
 
   })
