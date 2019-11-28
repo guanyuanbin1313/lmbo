@@ -11,6 +11,7 @@ var testApiRouter = require("./routes/testApi.js");
 var app = express();
 var upload  = require('./routes/upload.js');
 var userRegister = require('./routes/userRegister.js');
+var adminLogin = require('./routes/adminLogin.js');
 
 // view engine setup
 app.use((req,res,next) => {
@@ -32,6 +33,7 @@ app.use('/login',userLogin);
 app.use('/register',userRegister);
 app.use('/upload',upload);
 app.use("/testApi",testApiRouter);
+app.use('/admin/login',adminLogin);
 app.use('/', indexRouter);
 app.use('/users', usersRouter);
 // catch 404 and forward to error handler
