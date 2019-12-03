@@ -7,6 +7,7 @@ import {BrowserRouter,Link,Route} from 'react-router-dom';
 import Login from './components/Login';
 import Register from './components/register';
 import Upload from './components/upload.js';
+import Detail from './components/detail.js';
 const {Search} = Input;
 
 export default class App extends React.Component {
@@ -53,6 +54,8 @@ export default class App extends React.Component {
         <Route path="/register" component={Register}/>
         <Route path="/login" component={Login}/>
         <Route path="/upload" component={Upload}/>
+        <Route path="/detail" component={Detail}/>
+
       </BrowserRouter>
 
     );
