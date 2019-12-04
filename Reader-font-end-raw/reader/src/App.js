@@ -8,6 +8,8 @@ import Login from './components/Login';
 import Register from './components/register';
 import Upload from './components/upload.js';
 import Detail from './components/detail.js';
+import BooksShelf from './components/shelf.js';
+
 const {Search} = Input;
 
 export default class App extends React.Component {
@@ -18,17 +20,7 @@ export default class App extends React.Component {
     };
   }
 
-  callApi() {
-    fetch("http://localhost:9000/testApi",{
-      method:'GET',
-      mode : 'cors'
-    })
-    .then(res=> res.text())
-    .then(res => this.setState({apiResponse:res}))
-    .catch(err => err);
-  }
   componentDidMount() {
-    this.callApi();
     console.log(this.state.apiResponse);
   }
   render() {
@@ -44,17 +36,21 @@ export default class App extends React.Component {
         size="large"
         onSearch={value => console.log(value)}
         />
+
         <div className="login_register">
         <Link style={{color: 'white'}} to="/login">登录</Link>
         <span style={{color: 'grey',margin:'0 1vw 0 1vw'}}>|</span>
         <Link style={{color: 'white'}} to="/register">注册</Link>
         </div>
         </div>
+
+
         </div>
+        <Route exact path='/' component={BooksShelf}/>
         <Route path="/register" component={Register}/>
         <Route path="/login" component={Login}/>
         <Route path="/upload" component={Upload}/>
-        <Route path="/detail" component={Detail}/>
+        <Route path="/detail/:id" component={Detail}/>
 
       </BrowserRouter>
 

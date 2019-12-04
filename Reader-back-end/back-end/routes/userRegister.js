@@ -22,7 +22,6 @@ router.post('/',function(req,res,next) {
     connection.query(queryInsert,function(err,result) {
       if(err) {
         res.send(false);
-        // var resultType = JSON.parse(JSON.stringify(result));
         console.log(err);
       }
       else {

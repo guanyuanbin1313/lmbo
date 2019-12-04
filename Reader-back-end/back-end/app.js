@@ -12,8 +12,24 @@ var app = express();
 var upload  = require('./routes/upload.js');
 var userRegister = require('./routes/userRegister.js');
 var adminLogin = require('./routes/adminLogin.js');
+var getDetail = require('./routes/getdetail.js');
+var getBooksList = require('./routes/getBookList.js');
 
 // view engine setup
+app.all('*', function (req, res, next) {
+//响应头指定了该响应的资源是否被允许与给定的origin共享。*表示所有域都可以访问，同时可以将*改为指定的url，表示只有指定的url可以访问到资源
+  res.header("Access-Control-Allow-Origin", "*");
+  res.header("Access-Control-Allow-Headers", "X-Requested-With");
+  //允许请求资源的方式
+  res.header("Access-Control-Allow-Methods","PUT,POST,GET,DELETE,OPTIONS");
+  res.header("X-Powered-By", ' 3.2.1');
+  res.header("Content-Type", "application/json;charset=utf-8");
+  next();
+});
+
+
+
+
 app.use((req,res,next) => {
   res.setHeader('Access-Control-Allow-Origin', '*');
   res.setHeader('Access-Control-Allow-Methods', [
@@ -35,7 +51,9 @@ app.use('/upload',upload);
 app.use("/testApi",testApiRouter);
 app.use('/admin',adminLogin);
 app.use('/', indexRouter);
+app.use('/getdetail',getDetail);
 app.use('/users', usersRouter);
+app.use('/getbookslist',getBooksList);
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
   next(createError(404));
