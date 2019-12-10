@@ -25,7 +25,7 @@ export default class Detail extends React.Component {
         <h2>{this.state.data.bookname}</h2>
         </div>
         <img src={`http://localhost:9000/getbookslist/image?id=${this.state.data.bookId}${this.state.data.extName}`}></img>
-        <h3>{this.state.data.detail}</h3>
+        <h3 className="book-detail">{this.state.data.detail}</h3>
       </div>
     )
   }

@@ -9,7 +9,8 @@ import Register from './components/register';
 import Upload from './components/upload.js';
 import Detail from './components/detail.js';
 import BooksShelf from './components/shelf.js';
-
+import SearchResult from './components/search.js';
+import Nav from './components/nav.js';
 const {Search} = Input;
 
 export default class App extends React.Component {
@@ -23,37 +24,27 @@ export default class App extends React.Component {
   componentDidMount() {
     console.log(this.state.apiResponse);
   }
+  searching = ()=> {
+    // console.log(value);
+    console.log(this.props);
+  }
+
   render() {
+    const { PayIncrease } = this.props;
     return (
       <BrowserRouter>
-        <div className="container">
-        <div className="header">
-        <a href="/"><span className="logo-title">Reader</span></a>
-        <Search
-        className="search-input"
-        placeholder="搜索你要的书"
-        enterButton="搜索"
-        size="large"
-        onSearch={value => console.log(value)}
-        />
-
-        <div className="login_register">
-        <Link style={{color: 'white'}} to="/login">登录</Link>
-        <span style={{color: 'grey',margin:'0 1vw 0 1vw'}}>|</span>
-        <Link style={{color: 'white'}} to="/register">注册</Link>
+        <div>
+          <h1>{this.props.salary}</h1>
+          <button onClick={PayIncrease}>增加</button>
         </div>
-        </div>
-
-
-        </div>
+        <Route path='/' component={Nav}/>
         <Route exact path='/' component={BooksShelf}/>
         <Route path="/register" component={Register}/>
         <Route path="/login" component={Login}/>
         <Route path="/upload" component={Upload}/>
         <Route path="/detail/:id" component={Detail}/>
-
+        <Route path="/search/:id" component={SearchResult}/>
       </BrowserRouter>
-
     );
 
   }

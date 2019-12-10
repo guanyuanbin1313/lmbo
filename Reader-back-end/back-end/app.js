@@ -14,7 +14,9 @@ var userRegister = require('./routes/userRegister.js');
 var adminLogin = require('./routes/adminLogin.js');
 var getDetail = require('./routes/getdetail.js');
 var getBooksList = require('./routes/getBookList.js');
-
+var session = require('express-session');
+var search = require('./routes/search.js');
+var ejs = require('ejs');
 // view engine setup
 app.all('*', function (req, res, next) {
 //响应头指定了该响应的资源是否被允许与给定的origin共享。*表示所有域都可以访问，同时可以将*改为指定的url，表示只有指定的url可以访问到资源
@@ -27,6 +29,12 @@ app.all('*', function (req, res, next) {
   res.header("Content-Type", "text/html;charset=utf-8");
   next();
 });
+app.use(session({
+  secret:'zstd',
+  resave:true,
+  saveUninitialized:true,
+  cookie:{maxAge:60*1000*60*48}
+}))
 
 
 
@@ -39,6 +47,7 @@ app.use((req,res,next) => {
   next();
 });
 app.set('views', path.join(__dirname, 'views'));
+app.engine('html', require('ejs').__express);
 app.set('view engine', 'ejs');
 app.use(cors());
 app.use(logger('dev'));
@@ -55,10 +64,12 @@ app.use('/', indexRouter);
 app.use('/getdetail',getDetail);
 app.use('/users', usersRouter);
 app.use('/getbookslist',getBooksList);
+app.use('/search',search);
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
   next(createError(404));
 });
+
 
 // error handler
 app.use(function(err, req, res, next) {

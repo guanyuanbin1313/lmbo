@@ -25,6 +25,12 @@ export default class Login extends React.Component {
 
     }
 
+    componentDidMount() {
+      fetch('http://localhost:9000/login/info',{medod:"get"})
+      .then(res=> {console.log(res.text())})
+    }
+
+
   home(){
     this.props.history.push('/')
   }

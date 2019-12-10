@@ -4,9 +4,9 @@ var connection = require('../common/sqlConnection.js');
 var encrypt = require('../common/encrypt.js');
 // var adminLoginPage = require)('./adminPage.ejs');
 
-router.get('/',function(req,res,next) {
-  res.render("Signin");
-})
+// router.get('/',function(req,res,next) {
+//   res.render("Signin");
+// })
 router.post('/',function(req,res,next) {
   var username = req.body.username;
 
