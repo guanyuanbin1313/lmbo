@@ -16,7 +16,7 @@ export default function() {
             <input name="shareLink" type="text" placeholder=" 请输入分享链接：" style={{border:'1px solid #0080ff',outline:'none',borderRadius:'1vw',marginLeft:"2vw",marginTop:'5vw',width:'40vw',height:"6vw"}}>
             </input>
             <br></br>
-            <input name="linkSecret" type="password" placeholder=" 请输入链接密码：" style={{border:'1px solid #0080ff',outline:'none',borderRadius:'1vw',marginLeft:"2vw",marginTop:'5vw',width:'40vw',height:"6vw"}}>
+            <input name="linkSecret" type="text" placeholder=" 请输入链接密码：" style={{border:'1px solid #0080ff',outline:'none',borderRadius:'1vw',marginLeft:"2vw",marginTop:'5vw',width:'40vw',height:"6vw"}}>
             </input>
             <br></br>
             <input name="detail" type="text" placeholder=" 书的简介：" style={{border:'1px solid #0080ff',outline:'none',borderRadius:'1vw',marginLeft:"2vw",marginTop:'5vw',width:'40vw',height:"6vw"}}>
@@ -27,7 +27,7 @@ export default function() {
             <br></br>
             <input style={{backgroundColor:'#0080ff',color:'white',border:'none',marginTop:'1vw',width:'40vw',borderRadius:'1vw',height:'6vw',marginLeft:"2vw",}} type="submit"></input>
           </div>
-        </div>
+        </div>z
       </form>
     </div>
   )
