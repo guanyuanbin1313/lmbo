@@ -4,9 +4,9 @@ var router = express.Router();
 /* GET home page. */
 
 /**登录界面 */
-// router.get('/admin', function (req, res, next) {
-//   res.render("Signin");
-// });
+ router.get('/', function (req, res, next) {
+  res.render("Signin");
+ });
 
 /**登录验证 */
 
