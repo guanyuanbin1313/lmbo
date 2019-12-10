@@ -5,6 +5,7 @@ var router = express.Router();
 
 /**登录界面 */
  router.get('/', function (req, res, next) {
+  res.setHeader("Content-Type", "text/html;charset=utf-8");
   res.render("Signin");
  });
 
@@ -12,12 +13,14 @@ var router = express.Router();
 
 /**主页 */
 router.get('/home', function (req, res, next) {
+ 
   res.render("Home");
 });
 
 //
 // /**用户 */
 router.get('/user', function (req, res, next) {
+  res.setHeader("Content-Type", "text/html;charset=utf-8");
   res.render("User");
 });
 
