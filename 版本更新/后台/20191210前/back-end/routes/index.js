@@ -5,6 +5,7 @@ var router = express.Router();
 
 /**登录界面 */
  router.get('/', function (req, res, next) {
+  res.setHeader('Content-type:text/html; charset:utf8')
   res.render("Signin");
  });
 

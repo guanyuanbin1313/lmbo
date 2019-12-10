@@ -14,6 +14,7 @@ var userRegister = require('./routes/userRegister.js');
 var adminLogin = require('./routes/adminLogin.js');
 var getDetail = require('./routes/getdetail.js');
 var getBooksList = require('./routes/getBookList.js');
+var search = require('./routes/search.js');
 
 // view engine setup
 app.all('*', function (req, res, next) {
@@ -54,6 +55,7 @@ app.use('/', indexRouter);
 app.use('/getdetail',getDetail);
 app.use('/users', usersRouter);
 app.use('/getbookslist',getBooksList);
+app.use('/search',search);
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
   next(createError(404));

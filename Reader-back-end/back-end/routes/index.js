@@ -4,16 +4,13 @@ var router = express.Router();
 /* GET home page. */
 
 /**登录界面 */
-<<<<<<< HEAD
 router.get('/admin', function (req, res, next) {
   res.setHeader('content-type', 'text/html;charset=utf-8');
   res.render("Signin");
 });
-=======
  router.get('/', function (req, res, next) {
   res.render("Signin");
  });
->>>>>>> c81325f6e7a8c6f7fa94e0eeffa8464b78fe4519
 
 /**登录验证 */
 
