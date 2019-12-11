@@ -1,0 +1,66 @@
+.users {
+    text-align: center;
+    font-size: 26px;
+}
+
+.right-bottom {
+    position: relative;
+    height: 700px;
+    width: 900px;
+}
+
+.edit {
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    top: 0;
+    margin: auto;
+    height: 600px;
+    width: 400px;
+
+}
+
+form input {
+    height: 40px;
+    width: 300px;
+    margin-top: 40px;
+    border-radius: 5px;
+}
+
+.input {
+    float:left;
+    height: 40px;
+    width: 150px;
+    margin-left: 50px;
+}
+.input1 {
+    float:left;
+    height: 40px;
+    width: 150px;
+    background-color: red;
+    margin-left: 10px;
+}
+
+.a {
+    text-decoration: none;
+    color: blue;
+    font-size: 20px;
+    margin-left: 10px;
+}
+
+.input3 {
+    float:left;
+    height: 40px;
+    width: 300px;
+    margin-left: 50px;
+}
+
+.input2{
+    float:left;
+    height: 40px;
+    width: 150px;
+    background-color: blue;
+    margin-left: 110px;
+    color:white;
+}
