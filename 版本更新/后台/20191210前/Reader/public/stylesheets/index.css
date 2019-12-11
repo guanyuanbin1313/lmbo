@@ -1,0 +1,91 @@
+body{
+    background-color: rgb(199, 182, 175);
+}
+
+.body {
+    height: 800px;
+    width: 1200px;
+    margin: 0 auto;
+    background-color: rgb(253, 252, 251);
+    position:relative;
+}
+
+.left {
+    height: 800px;
+    width: 300px;
+    float: left;
+    background-color: rgb(85, 198, 250);
+}
+
+.asd {
+    height: 600px;
+    width: 200px;
+    margin-left: 25px;
+    margin-top: 100px;
+}
+
+.asd li {
+    margin-top: 75px;
+    list-style: none;
+    height: 25px;
+    border-bottom: solid rgb(248, 245, 245);
+}
+
+.asd li a {
+    float: left;
+    margin-left: 15px;
+    color: rgb(250, 248, 248);
+    text-decoration: none;
+    line-height: 25px;
+}
+.asd li a:hover{
+    color: darkviolet;
+}
+
+.asd li img {
+    float: left;
+    width: 25px;
+    height: 25px;
+}
+
+
+.right {
+    float: left;
+    height: 800px;
+    width: 900px;
+}
+
+.right-top {
+    height: 100px;
+    width: 900px;
+}
+
+.right-top-left {
+    float: left;
+    width: 450px;
+    height: 100px;
+}
+
+
+.right-top-right{
+    float: right;
+    width: 450px;
+    height: 100px;
+}
+
+
+.user{
+    float:right;
+    color: black;
+    text-decoration: none;
+    margin-right: 10px;
+    margin-top: 20px;
+}
+
+.exit{
+    float:right;
+    color: black;
+    text-decoration: none;
+    margin-right: 20px;
+    margin-top: 20px;
+}
