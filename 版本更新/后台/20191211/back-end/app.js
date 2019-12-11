@@ -25,7 +25,7 @@ app.all('*', function (req, res, next) {
   //允许请求资源的方式
   res.header("Access-Control-Allow-Methods","PUT,POST,GET,DELETE,OPTIONS");
   res.header("X-Powered-By", ' 3.2.1');
-  res.header("Cache-Control", "no-store")
+  res.header("Cache-Control", "no-store");
   next();
 });
 
