@@ -52,16 +52,26 @@
                         </tr>
                     </thead>
                     <tbody>
+                    
+                    <% for(var i = 0; i < datas.length; i++) {%>
                         <tr>
-                            <td>gyb</td>
-                            <td>123456789</td>
-                            <td>2925220648@qq.com</td>
-                            <td>1571812727</td>
-                            <td><a href="/useredit">编辑</a></td>
-                        </tr>
+                            <td>
+                                <%= datas[i].id %>
+                            </td>
+                            <td>
+                                <%= datas[i].name %>
+                            </td>
+                            <td>
+                                <%= datas[i].age %>
+                            </td>
+                            <td>
+                                <a href="/adduser">添加用户</a>|
+                                <a href="/del/<%= datas[i].id %>">删除</a>|<a href="/edit/<%= datas[i].id %>">编辑</a>
+                            </td>
+                            </tr>
+                            <% } %>
                     </tbody>
                 </table>
-                <a class="add" href="/adduser">添加用户</a>
                 <a class="add" href="">下一页</a>
                 
             </div>

@@ -15,6 +15,7 @@ var userRegister = require('./routes/userRegister.js');
 var adminLogin = require('./routes/adminLogin.js');
 var getDetail = require('./routes/getdetail.js');
 var getBooksList = require('./routes/getBookList.js');
+var adduser=require("./routes/adduser.js");
 
 app.disable('etag'); 
 // view engine setup
@@ -56,6 +57,7 @@ app.use('/', indexRouter);
 app.use('/getdetail',getDetail);
 app.use('/users', usersRouter);
 app.use('/getbookslist',getBooksList);
+app.use('/adduser',adduser);//用户管理
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
   next(createError(404));
