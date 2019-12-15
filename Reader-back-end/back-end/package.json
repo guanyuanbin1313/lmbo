@@ -9,11 +9,8 @@
     "cookie-parser": "^1.4.4",
     "cors": "^2.8.5",
     "debug": "^4.1.1",
-<<<<<<< HEAD
     "ejs": "^3.0.1",
-=======
     "ejs": "^2.6.2",
->>>>>>> c81325f6e7a8c6f7fa94e0eeffa8464b78fe4519
     "express": "~4.16.1",
     "express-session": "^1.17.0",
     "formidable": "^1.2.1",
