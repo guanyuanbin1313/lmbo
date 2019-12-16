@@ -7,8 +7,9 @@ var connection = require('../common/sqlConnection.js');
 
 router.post('/',function(req,res,next) {
   // connection.connect();
-  var username = req.query.username;
-  var password = req.query.password;
+  console.log(req.query);
+  var username = req.body.username;
+  var password = req.body.password;
   console.log(username);
   if(!username) {
     res.send("请输入用户名");
@@ -25,7 +26,7 @@ router.post('/',function(req,res,next) {
         console.log(err);
       }
       else {
-        res.send(true);
+        res.redirect('http://localhost:3000');
       }
     })
   }

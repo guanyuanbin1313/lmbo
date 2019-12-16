@@ -14,19 +14,41 @@ var session = require('express-session');
 
 
 router.post('/token',function(req,res,next) {
-  console.log(req.body.token,"rest");
-  var token = req.rody.token;
-  var tokenDecode = encrypt.aseDecode(token,'zstd');
-  
+  console.log(req.body.token);
+  if(req.body.token) {
+    var token = req.body.token;
+    console.log(token);
+    var tokenDecode = encrypt.aseDecode(token,'zstd');
+    var json1 = `{${tokenDecode}}`;
+    // console.log(json1);
+    var tokenJson = JSON.parse(json1);
+    let username = tokenJson.username;
+    let query2 = `select username from user where username='${username}'`;
+    connection.query(query2,function(err,result) {
+      if(result) {
+        if(result.length == 0) {
+          res.send(false);
+        }
+        else {
+          // res.send(username);
+          res.send(username);
+          // console.log(username);
+        }
 
-  res.send("收到");
+      }
+      else {
+        res.send(false);
+      }
+    })
+
+  }
+  else {
+    res.send(false);
+  }
+
 
 })
 
-router.post('/token',function(req,res,next) {
-  var token = req.body.token;
-  console.log(token);
-})
 
 
 router.post('/',function(req,res,next) {
@@ -43,7 +65,7 @@ router.post('/',function(req,res,next) {
         // res.setHeader('Content-Type','text/html;charset=utf-8');
         console.log("登录失败")
         res.send({
-          token:none,
+          token:false,
           status:'失败'
         });
       }
@@ -51,7 +73,7 @@ router.post('/',function(req,res,next) {
         // res.setHeader('Content-Type','text/html;charset=utf-8');
         var data = new Date();
         var timeStamp = data.getTime();
-        var tokenString = `'username':'${username}'`;
+        var tokenString = `"username":"${username}"`;
 
         var token = encrypt.aseEncode(tokenString,'zstd');
         console.log(token);

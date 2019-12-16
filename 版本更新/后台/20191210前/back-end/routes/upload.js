@@ -29,7 +29,7 @@ router.post('/',function(req,res,next) {
   // var
   form.parse(req,(err,fields,files)=>{
     if(err) {
-      res.send(err);
+      res.redirect('http://localhost:3000/');
     }
     // console.log(fields);
     // console.log(files);
@@ -65,7 +65,7 @@ router.post('/',function(req,res,next) {
         res.send(err);
       }
       else {
-        res.send(true);
+        res.redirect('http://localhost:3000/');
       }
     })
 
