@@ -31,6 +31,13 @@ class Nav1 extends React.Component{
       <div className="container">
         <a href="http://localhost:3000/"><img style={{width:'100vw'}} src='./imgs/nav.jpg'></img></a>
         <div className="header">
+        <ul className="nav-label">
+          <a><li>文学</li></a>
+          <a><li>社科</li></a>
+          <a><li>财经</li></a>
+          <a><li>少儿</li></a>
+          <a><li>科技</li></a>
+        </ul>
           <Search
           style={{color:'white'}}
           className="search-input"
@@ -38,7 +45,7 @@ class Nav1 extends React.Component{
           size="large"
           onSearch={(value)=>{this.props.history.push(`/search/${value}`)}}
           />
-          <div className="login_register">
+          <div className="login_register" style={{float:'right',marginRight:'0'}}>
             {this.props.username == 'false' ? <div> <Link style={{color: 'white'}} to="/login">登录</Link>
             <span style={{color: 'grey',margin:'0 1vw 0 1vw'}}>|</span>
             <Link style={{color: 'white'}} to="/register">注册</Link></div>
