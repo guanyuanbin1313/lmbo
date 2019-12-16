@@ -6,21 +6,18 @@ import { createStore } from 'redux';
 import { Provider, connect } from 'react-redux';
 import * as serviceWorker from './serviceWorker';
 
-const state = '没登陆';
-
-
 const login = {
   type:'登录成功'
 }
-const reducer = (state = {username:'test',token:''},action) => {
-  const username = state.username;
-  const token = state.token;
+const reducer = (state="false",action) => {
+  // const token = state.token;
+
   switch(action.type) {
     case '登录成功':
-      return {username:username,token:token}
+      return action.username;
       break;
     default:
-      return {username:'',token:''}
+      return state;
   }
 }
 
@@ -28,13 +25,13 @@ const store = createStore(reducer);
 //渲染什么数据
 function mapStateToProps(state) {
   return {
-    username:state.username
+    username:state
   }
 }
 //触发什么行为
 function mapDispatchToProps(dispatch) {
   return {
-    loginSuccess:(state,action)=>{dispatch({type:'涨工资'})}
+      loginSuccess(username1,token1){dispatch({type:"登录成功",token:token1,username:username1})},
   }
 }
 

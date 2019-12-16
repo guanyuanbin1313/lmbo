@@ -2,38 +2,56 @@ import React from 'react';
 import '../App.css';
 import { Link } from 'react-router-dom';
 import { Nav,Input } from 'antd';
+
+import { connect } from 'react-redux';
 const {Search} = Input;
+class Nav1 extends React.Component{
 
 
-export default class Nav1 extends React.Component{
 
-  constructor() {
-    super();
+
+  deleteItem() {
+    localStorage.removeItem('token');
+    window.location.reload();
+  }
+  constructor
+  (props) {
+    super(props);
     this.state={
       data:{}
     }
   }
-
+  componentDidMount() {
+    console.log(this.props.username);
+  }
   render() {
+    console.log(this.props.username);
+    const { username } = this.props;
     return(
       <div className="container">
-      <div className="header">
-      <a href="/"><span className="logo-title">Reader</span></a>
-      <Search
-      className="search-input"
-      placeholder="搜索你要的书"
-      enterButton="搜索"
-      size="large"
-      onSearch={(value)=>{this.props.history.push(`/search/${value}`)}}
-      />
-      <div className="login_register">
-      <Link style={{color: 'white'}} to="/login">登录</Link>
-      <span style={{color: 'grey',margin:'0 1vw 0 1vw'}}>|</span>
-      <Link style={{color: 'white'}} to="/register">注册</Link>
-      </div>
-      </div>
+        <a href="http://localhost:3000/"><img style={{width:'100vw'}} src='./imgs/nav.jpg'></img></a>
+        <div className="header">
+          <Search
+          style={{color:'white'}}
+          className="search-input"
+          placeholder="搜索你要的书"
+          size="large"
+          onSearch={(value)=>{this.props.history.push(`/search/${value}`)}}
+          />
+          <div className="login_register">
+            {this.props.username == 'false' ? <div> <Link style={{color: 'white'}} to="/login">登录</Link>
+            <span style={{color: 'grey',margin:'0 1vw 0 1vw'}}>|</span>
+            <Link style={{color: 'white'}} to="/register">注册</Link></div>
+            :<div><a href='' style={{color:'white'}}>{username}</a>|<a style={{marginLeft:'5px',color:'white'}} onClick={()=>{this.deleteItem()}}>登出</a></div>}
+          </div>
+          </div>
       </div>
 
   )
 }
 }
+export default connect(function(state) {
+  return {
+    username:state
+  }
+})(Nav1)

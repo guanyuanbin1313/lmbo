@@ -15,8 +15,9 @@ var userRegister = require('./routes/userRegister.js');
 var adminLogin = require('./routes/adminLogin.js');
 var getDetail = require('./routes/getdetail.js');
 var getBooksList = require('./routes/getBookList.js');
+var commit = require('./routes/commit.js');
 
-app.disable('etag'); 
+app.disable('etag');
 // view engine setup
 app.all('*', function (req, res, next) {
 //响应头指定了该响应的资源是否被允许与给定的origin共享。*表示所有域都可以访问，同时可以将*改为指定的url，表示只有指定的url可以访问到资源
@@ -32,13 +33,13 @@ app.all('*', function (req, res, next) {
 
 
 
-// app.use((req,res,next) => {
-//   res.setHeader('Access-Control-Allow-Origin', '*');
-//   res.setHeader('Access-Control-Allow-Methods', [
-//     'GET','POST','PUT','DELETE','OPTIONS'
-//   ]);
-//   next();
-// });
+app.use((req,res,next) => {
+  res.setHeader('Access-Control-Allow-Origin', '*');
+  res.setHeader('Access-Control-Allow-Methods', [
+    'GET','POST','PUT','DELETE','OPTIONS'
+  ]);
+  next();
+});
 app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'ejs');
 // app.use(cors());
@@ -56,6 +57,8 @@ app.use('/', indexRouter);
 app.use('/getdetail',getDetail);
 app.use('/users', usersRouter);
 app.use('/getbookslist',getBooksList);
+app.use('/commit',commit);
+
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
   next(createError(404));

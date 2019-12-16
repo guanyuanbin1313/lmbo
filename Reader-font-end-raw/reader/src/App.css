@@ -35,7 +35,7 @@
   justify-content: flex-start;
   height:8vh;
   width:100%;
-  background-color: #cccccc;
+  background-color: #ef655b;
   border-radius:5px;
   vertical-align: middle;
 }
@@ -84,11 +84,24 @@ body {
   /* border:1px solid red; */
 }
 .book {
-  width:100px;
-  height:150px;
+  width:120px;
+  height:200px;
   margin-left:20px;
+  border-radius:5px;
   margin-top:10px;
   margin-bottom:80px;
+  /* border-bottom:0.5px solid #999;
+  border-right:0.1px solid #999; */
+  overflow:hidden;
+  box-shadow:0.3px 0.8px 1px #ff5675;
+}
+.book:hover {
+  box-shadow:0.6px 1.4px 2px #ff5675;
+}
+
+
+.book p {
+  padding-bottom:10px;
 }
 .book:first-child {
   /* margin-left:0px; */
@@ -96,6 +109,7 @@ body {
 .shelf-container {
   text-align:center;
 }
+
 .shelf-container h2 {
   margin-top:10px;
   margin-left:30px;
@@ -107,9 +121,9 @@ body {
   }
 }
 .book img{
-  width:100%;
-  height:90%;
-  border:1px solid silver;
+  width:90%;
+  height:78%;
+  /* border:1px solid silver; */
   padding:1px;
   overflow:hidden;
 }
@@ -117,6 +131,7 @@ body {
   width:90vw;
   margin:0 auto;
   background-color: white;
+  border-radius:15px;
   /* border:1px solid red; */
 }
 /* .recently p {
@@ -132,8 +147,11 @@ body {
 .detail-title {
   width:100%;
   /* height:50px; */
-  background-color: #f8f8f8;
+  background-color: #ef655b;
   margin-top:30px;
+  border-top-right-radius:15px;
+  border-top-left-radius:15px;
+
 }
 .detail-title h2 {
   padding-top:15px;
@@ -191,6 +209,8 @@ body {
   font-size:20px;
   /* margin-left:10vw; */
   width:10vw;
+  margin-top:10px;
+  margin-bottom:10px;
 }
 
 .labels {
@@ -202,7 +222,7 @@ body {
 }
 .labels:hover {
   color:white;
-  background-color: red;
+  background-color: pink;
 }
 
 .labels:visited {
@@ -211,4 +231,26 @@ body {
 }
 .select {
   width:30px;
+}
+
+
+.commit-container {
+  margin-top:30px;
+  height:30px;
+  /* border-bottom:1px solid grey; */
+}
+
+
+.commit-big {
+  height:100px;
+}
+
+
+body h2 {
+  color:white;
+  padding-left:20px;
+}
+
+.recently {
+  border-radius:10px;
 }

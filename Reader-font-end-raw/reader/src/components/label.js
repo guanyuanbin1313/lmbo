@@ -54,7 +54,7 @@ export default class Label extends React.Component {
           <div className = "detail-title">
           <ul className="classify">
             {['文学','社科','财经','少儿','科技'].map((item,e)=>(
-              <li><a onClick={()=>{this.setState({label:item})}} className="labels">{item}</a></li>
+              <li><a style={{color:'white'}} onClick={()=>{this.setState({label:item})}} className="labels">{item}</a></li>
             ))}
           </ul>
 

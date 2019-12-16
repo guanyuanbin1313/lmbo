@@ -53,6 +53,8 @@ export default class Login extends React.Component {
         localStorage.setItem('token',res.token);
         console.log('登录成功')
         console.log(res.token);
+        this.props.history.push('/');
+        window.location.reload();
       }
       console.log(res);
     })

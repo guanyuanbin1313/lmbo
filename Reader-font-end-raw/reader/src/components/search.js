@@ -59,8 +59,7 @@ export default class Search extends React.Component {
                       <img src={`http://localhost:9000/getbookslist/image?id=${item.bookId}${item.extName}`}></img>
                   </div>
                   <div>
-                    <h2>{item.bookname}</h2>
-
+                    <h1 style={{paddingLeft:'10px',marginLeft:'10px'}}>{item.bookname}</h1>
                   </div>
                 </div>
                 </Link>
