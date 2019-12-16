@@ -91,7 +91,7 @@ class Detail extends React.Component {
 
 
 
-        <div className='commit-container'>
+        <div className='commit-container' style={{float:'left',marginLeft:'40px'}}>
           {this.state.commits.map((item)=>(
             <div className="commit-container">
               <span style={{fontSize:'15px',fontFamily:'黑体',textAlign:'left'}}>用户{item.username}:</span>
