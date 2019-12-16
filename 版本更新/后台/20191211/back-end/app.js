@@ -15,7 +15,11 @@ var userRegister = require('./routes/userRegister.js');
 var adminLogin = require('./routes/adminLogin.js');
 var getDetail = require('./routes/getdetail.js');
 var getBooksList = require('./routes/getBookList.js');
+<<<<<<< HEAD
 var commit = require('./routes/commit.js');
+=======
+var adduser=require("./routes/adduser.js");
+>>>>>>> 10b160af73e7aae8d3e59c5bdfe7b51dc434166d
 
 app.disable('etag');
 // view engine setup
@@ -26,7 +30,7 @@ app.all('*', function (req, res, next) {
   //允许请求资源的方式
   res.header("Access-Control-Allow-Methods","PUT,POST,GET,DELETE,OPTIONS");
   res.header("X-Powered-By", ' 3.2.1');
-  res.header("Cache-Control", "no-store")
+  res.header("Cache-Control", "no-store");
   next();
 });
 
@@ -57,8 +61,12 @@ app.use('/', indexRouter);
 app.use('/getdetail',getDetail);
 app.use('/users', usersRouter);
 app.use('/getbookslist',getBooksList);
+<<<<<<< HEAD
 app.use('/commit',commit);
 
+=======
+app.use('/adduser',adduser);//用户管理
+>>>>>>> 10b160af73e7aae8d3e59c5bdfe7b51dc434166d
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
   next(createError(404));
