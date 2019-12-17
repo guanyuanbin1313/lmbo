@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <html class="x-admin-sm">
-    
+
     <head>
         <meta charset="UTF-8">
         <title>欢迎页面-X-admin2.2</title>
@@ -12,7 +12,7 @@
         <script src="/layui/layui.js" charset="utf-8"></script>
         <script type="text/javascript" src="/javascripts/xadmin.js"></script>
     </head>
-    
+
     <body>
         <div class="x-nav">
             <span class="layui-breadcrumb">
@@ -31,7 +31,7 @@
                     <div class="layui-card">
                         <div class="layui-card-body ">
                             <form class="layui-form layui-col-space5">
-                               
+
                                 <div class="layui-input-inline layui-show-xs-block">
                                     <input type="text" name="username" placeholder="请输入订单号" autocomplete="off" class="layui-input"></div>
                                 <div class="layui-input-inline layui-show-xs-block">
@@ -92,7 +92,7 @@
                                             <td class="td-manage">
                                                 <a title="查看" onclick="xadmin.open('编辑','order-view.html')" href="javascript:;">
                                                     <i class="layui-icon">&#xe63c;</i></a>
-                                                <a title="删除" onclick="member_del(this,'要删除的id')" href="javascript:;">
+                                                <a title="删除" onclick="member_del(this,<%= data[i].bookId%>)" href="javascript:;">
                                                     <i class="layui-icon">&#xe640;</i></a>
                                             </td>
                                         </tr>
@@ -205,15 +205,16 @@
 
         /*用户-删除*/
         function member_del(obj, id) {
-            layer.confirm('确认要删除吗？',
-            function(index) {
-                //发异步删除数据
-                $(obj).parents("tr").remove();
-                layer.msg('已删除!', {
-                    icon: 1,
-                    time: 1000
-                });
-            });
+          console.log(id);
+          fetch(`http://localhost:9000/userControl/delete/${id}`)
+          .then((res)=>res.json())
+          .then((res)=> {
+            if(res == true) {
+              console.log('test');
+              location.reload();
+            }
+          });
+
         }
 
         function delAll(argument) {
@@ -231,3 +232,4 @@
         }</script>
 
 </html>
+tml>
