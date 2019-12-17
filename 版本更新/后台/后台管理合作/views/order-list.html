@@ -52,39 +52,52 @@
                                         <th>
                                             <input type="checkbox" name="" lay-skin="primary">
                                         </th>
-                                        <th>订单编号</th>
-                                        <th>收货人</th>
-                                        <th>总金额</th>
-                                        <th>应付金额</th>
-                                        <th>订单状态</th>
-                                        <th>支付状态</th>
-                                        <th>发货状态</th>
-                                        <th>支付方式</th>
-                                        <th>配送方式</th>
-                                        <th>下单时间</th>
-                                        <th>操作</th></tr>
+                                        <th>书籍ID</th>
+                                        <th>书名</th>
+                                        <th>图片</th>
+                                        <th>简介</th>
+                                        <th>网盘链接</th>
+                                        <th>提取码</th>
+                                        <th>分类</th>
+                                        <th>操作</th>
+                                    </tr>
                                 </thead>
                                 <tbody>
-                                    <tr>
-                                        <td>
-                                            <input type="checkbox" name="" lay-skin="primary"></td>
-                                        <td>2017009171822298053</td>
-                                        <td>老王:18925139194</td>
-                                        <td>7829.10</td>
-                                        <td>7854.10</td>
-                                        <td>待确认</td>
-                                        <td>未支付</td>
-                                        <td>未发货</td>
-                                        <td>其他方式</td>
-                                        <td>申通物流</td>
-                                        <td>2017-08-17 18:22</td>
-                                        <td class="td-manage">
-                                            <a title="查看" onclick="xadmin.open('编辑','order-view.html')" href="javascript:;">
-                                                <i class="layui-icon">&#xe63c;</i></a>
-                                            <a title="删除" onclick="member_del(this,'要删除的id')" href="javascript:;">
-                                                <i class="layui-icon">&#xe640;</i></a>
-                                        </td>
-                                    </tr>
+                                    <%for(var i = 0;i < data.length;i++){%>
+                                        <tr>
+                                            <td>
+                                                <input type="checkbox" name="" lay-skin="primary">
+                                            </td>
+                                            <td>
+                                              <%= data[i].bookId%>
+                                            </td>
+                                            <td>
+                                              <%= data[i].bookname%>
+                                            </td>
+                                            <td>
+                                              <%= data[i].exName%>
+                                            </td>
+                                            <td>
+                                              <%= data[i].detail %>
+                                            </td>
+                                            <td>
+                                              <%= data[i].shareLink %>
+                                            </td>
+                                            <td>
+                                              <%= data[i].linkSecret%>
+                                            </td>
+                                            <td>
+                                              <%= data[i].label%>
+                                            </td>
+                                            <td class="td-manage">
+                                                <a title="查看" onclick="xadmin.open('编辑','order-view.html')" href="javascript:;">
+                                                    <i class="layui-icon">&#xe63c;</i></a>
+                                                <a title="删除" onclick="member_del(this,'要删除的id')" href="javascript:;">
+                                                    <i class="layui-icon">&#xe640;</i></a>
+                                            </td>
+                                        </tr>
+                                  <%}%>
+
                                     <tr>
                                         <td>
                                             <input type="checkbox" name="" lay-skin="primary"></td>
