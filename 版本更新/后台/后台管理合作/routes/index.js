@@ -1,5 +1,6 @@
 var express = require('express');
 var router = express.Router();
+var encrypt = require('../common/encrypt.js');
 var connection = require('../common/sqlConnection.js');
 /* GET home page. */
 
@@ -21,6 +22,94 @@ router.get('/welcome.html', function(req, res, next) {
   res.setHeader("Content-Type", "text/html;charset=utf-8");
   res.render('welcome.html');
 });
+
+
+
+
+
+router.get('/welcome.html', function(req, res, next) {
+  res.setHeader("Content-Type", "text/html;charset=utf-8");
+  res.render('welcome.html');
+});
+
+
+//用户列表
+router.get('/member-list.html', function(req, res, next) {
+  var query1 = 'select * from admin';
+  connection.query(query1,(err,result)=> {
+    if(err) console.log(err);
+    res.setHeader("Content-Type", "text/html;charset=utf-8");
+    res.render('member-list.html',{data:result});
+  })
+});
+//删除用户
+router.get('/user/delete/?:username',function(req,res,next) {
+  var id = req.params.id;
+  console.log(id);
+  var query1 = `delete from admin where bookId='${username}' `;
+  console.log(query1);
+  connection.query(query1,function(err,result) {
+    if(err) {
+      res.send(false);
+    }
+    else {
+      res.send(true);
+    }
+  })
+})
+
+
+//添加用户
+router.get('/member-add.html', function(req, res, next) {
+  res.setHeader("Content-Type", "text/html;charset=utf-8");
+  res.render('member-add.html');
+});
+
+router.post("/adduser",function(req,res,next){
+  var email = req.body.email;
+  var username = req.body.username;
+  var password=req.body.password;
+  password = encrypt.aseEncode(password,'zstd');
+  connection.query("insert ignore into admin(username,password,email) values('"+username+"','"+ password+"','"+email+"')",function(err,rows){
+      if(err){
+          res.send("新增失败"+err);
+      }else {
+          res.send("添加成功");
+      }
+  });
+});
+/*
+router.post('/adduser',function(req,res,next) {
+  // connection.connect();
+  console.log(req.query);
+  var username = req.body.username;
+  var password = req.body.password;
+  var email=req.body.email;
+  console.log(username);
+  if(!username) {
+    res.send("请输入用户名");
+  }
+  else {
+    password = encrypt.aseEncode(password,'zstd');
+    // var querInsert = "insert into user(username,password,email)values('" + username+ "','" + )
+    var queryInsert = `insert into admin(username,password,email) values('${username}','${password}','${email}')`;
+    console.log(queryInsert);
+    connection.query(queryInsert,function(err,result) {
+      if(err) {
+        res.send(false);
+        console.log(err);
+      }
+      else {
+        res.redirect('http://localhost:3000');
+      }
+    })
+  }
+});
+
+*/
+
+
+
 /*
 router.get('/member-list1.html', function(req, res, next) {
   res.setHeader("Content-Type", "text/html;charset=utf-8");
@@ -34,22 +123,39 @@ router.get('/order-list.html', function(req, res, next) {
     res.setHeader("Content-Type", "text/html;charset=utf-8");
     res.render('order-list.html',{data:result});
   })
-
 });
+//删除
+router.get('/book/delete/?:id',function(req,res,next) {
+  var id = req.params.id;
+  console.log(id);
+  var query1 = `delete from books where bookId='${id}' `;
+  console.log(query1);
+  connection.query(query1,function(err,result) {
+    if(err) {
+      res.send(false);
+    }
+    else {
+      res.send(true);
+    }
+  })
+})
 
 
 
-router.get('/member-list.html', function(req, res, next) {
+
+
+
+router.get('/admin-list.html', function(req, res, next) {
   var query1 = 'select * from admin';
   connection.query(query1,(err,result)=> {
     if(err) console.log(err);
     res.setHeader("Content-Type", "text/html;charset=utf-8");
-    res.render('member-list.html',{data:result});
+    res.render('admin-list.html',{data:result});
   })
 
 });
 
-//添加会员
+//添加书籍
 router.get('/add', function(req, res, next) {
   res.setHeader("Content-Type", "text/html;charset=utf-8");
   res.render('order-add.html');
@@ -70,6 +176,9 @@ router.post("/add",function(req,res,next){
       }
   });
 });
+
+
+
 
 
 //编辑
