@@ -26,6 +26,18 @@ router.get('/member-list1.html', function(req, res, next) {
   res.setHeader("Content-Type", "text/html;charset=utf-8");
   res.render('member-list1.html');
 });*/
+//书籍列表
+router.get('/order-list.html', function(req, res, next) {
+  var query1 = 'select * from books';
+  connection.query(query1,(err,result)=> {
+    if(err) console.log(err);
+    res.setHeader("Content-Type", "text/html;charset=utf-8");
+    res.render('order-list.html',{data:result});
+  })
+
+});
+
+
 
 router.get('/member-list.html', function(req, res, next) {
   var query1 = 'select * from books';
@@ -38,10 +50,28 @@ router.get('/member-list.html', function(req, res, next) {
 });
 
 //添加会员
-router.get('/member-add.html', function(req, res, next) {
+router.get('/add', function(req, res, next) {
   res.setHeader("Content-Type", "text/html;charset=utf-8");
-  res.render('member-add.html');
+  res.render('order-add.html');
 });
+router.post("/add",function(req,res,next){
+  var bookId = req.body.name;
+  var bookname = req.body.bookname;
+  var extName=req.body.extName;
+  var detail=req.body.detail;
+  var shareLink=req.body.shareLink;
+  var linkSecret=req.body.linkSecret;
+  var label=req.body.label;
+  connection.query("insert into books(bookId,bookname,extName,detail,shareLink,linkSecret,label) values('"+bookId+"','"+bookname+"','"+ extName+"','"+ detail+"','"+shareLink+"','"+ linkSecret+"','"+ label+"')",function(err,rows){
+      if(err){
+          res.send("新增失败"+err);
+      }else {
+          res.redirect("/home");
+      }
+  });
+});
+
+
 //编辑
 router.get('/member-edit.html', function(req, res, next) {
   res.setHeader("Content-Type", "text/html;charset=utf-8");
