@@ -40,7 +40,7 @@ router.get('/order-list.html', function(req, res, next) {
 
 
 router.get('/member-list.html', function(req, res, next) {
-  var query1 = 'select * from books';
+  var query1 = 'select * from admin';
   connection.query(query1,(err,result)=> {
     if(err) console.log(err);
     res.setHeader("Content-Type", "text/html;charset=utf-8");
