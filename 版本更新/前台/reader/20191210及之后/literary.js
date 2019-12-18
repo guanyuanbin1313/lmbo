@@ -61,23 +61,7 @@ export default class literary extends React.Component {
           </ul>
 
           </div>
-          <div className="shelf">
-          {
-            [this.props.location.state.item].map((item)=> (
-              <div className="book" >
-                {
-                  console.log(item)
-                }
-                <img onClick={this.showDetail.bind(this)} 
-                src={`http://localhost:9000/getbookslist/image?id=${item.bookId}${item.extName}`}/>
-                
-                <p>{item.bookname}</p>
-              </div>
-            )
-          )
-          }
-          </div>
-        </div>
+         </div>
       </div>
     );
   }
