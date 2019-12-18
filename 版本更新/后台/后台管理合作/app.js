@@ -17,6 +17,8 @@ var getBooksList = require('./routes/getBookList.js');
 var search = require('./routes/search.js');
 var label = require('./routes/label.js');
 var commit = require('./routes/commit.js');
+var userControl = require('./routes/userControl.js');
+
 var ejs = require('ejs');
 const exphbs = require('express-handlebars');
 // view engine setup
@@ -64,6 +66,7 @@ app.use('/getbookslist',getBooksList);
 app.use('/search',search);
 app.use('/getlabel',label);
 app.use('/commit',commit);
+app.use('/userControl',userControl);
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
   next(createError(404));

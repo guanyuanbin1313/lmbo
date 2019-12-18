@@ -1,0 +1,66 @@
+*{
+    margin:0;
+    padding:0
+}
+li{
+    list-style:none
+}
+img{
+    vertical-align:top;
+    border:none
+}
+li{
+    font-size: 21px;
+    text-align: center;
+    line-height: 10vh;
+}
+li a{
+    color: white;
+}
+li a:hover{
+    color: black ;
+}
+.head{
+    float: left;
+    border-bottom: 1px solid #282c34;
+}
+.headtext{
+    font-size: 20px;
+    font-family: "微软雅黑";
+    float: left;
+    margin-top: 1vh;
+    margin-left: 1vw;
+    color: white;
+}
+
+.sculp{
+    width: 5vw;
+    height: 10vh;
+    border-radius: 50%;
+    border:1.5px solid #ABB2B9 ;
+    margin-left: 3.8vw;
+    margin-top: 2vh;
+}
+.main{
+    width: 56vw;
+    height: 84.7vh;
+    background-color: white;
+    position:absolute;
+    margin-top: 3vh;
+    margin-left:14vw;
+}
+.nav{
+    position: absolute;
+    margin-top: 3vh;
+    margin-left: 1vw;
+}
+.nav a{
+    color: #282c34;
+}
+.nav a:hover{
+    color: #3498DB;
+}
+
+.my a {
+  font-size:20px;
+}

@@ -45,7 +45,7 @@ export default class Shelf extends React.Component{
         </div>
         </div>
       </div>
-
+{/**
       <div className="shelf-container" style={{width:'20vw',float:'right'}}>
         <div className="recently" style={{width:'20vw'}}>
         <div className="detail-title">
@@ -61,6 +61,7 @@ export default class Shelf extends React.Component{
         </div>
         </div>
       </div>
+    */}
 
       </div>
     )

@@ -32,11 +32,12 @@ class Nav1 extends React.Component{
         <a href="http://localhost:3000/"><img style={{width:'100vw'}} src='./imgs/nav.jpg'></img></a>
         <div className="header">
         <ul className="nav-label">
-          <a><li>文学</li></a>
-          <a><li>社科</li></a>
-          <a><li>财经</li></a>
-          <a><li>少儿</li></a>
-          <a><li>科技</li></a>
+          <Link to="/"><a><li>首页</li></a></Link>
+          <Link to="/label/文学"><a><li>文学</li></a></Link>
+          <Link to="/label/社科"><a><li>社科</li></a></Link>
+          <Link to="/label/财经"><a><li>财经</li></a></Link>
+          <Link to="/label/少儿"><a><li>少儿</li></a></Link>
+          <Link to="/label/科技"><a><li>科技</li></a></Link>
         </ul>
           <Search
           style={{color:'white'}}
@@ -49,7 +50,7 @@ class Nav1 extends React.Component{
             {this.props.username == 'false' ? <div> <Link style={{color: 'white'}} to="/login">登录</Link>
             <span style={{color: 'grey',margin:'0 1vw 0 1vw'}}>|</span>
             <Link style={{color: 'white'}} to="/register">注册</Link></div>
-            :<div><a href='' style={{color:'white'}}>{username}</a>|<a style={{marginLeft:'5px',color:'white'}} onClick={()=>{this.deleteItem()}}>登出</a></div>}
+            :<div><Link to="/my" style={{color:'white'}}>{username}</Link>|<a style={{marginLeft:'5px',color:'white'}} onClick={()=>{this.deleteItem()}}>登出</a></div>}
           </div>
           </div>
       </div>
