@@ -30,21 +30,7 @@ export default class literary extends React.Component {
     this.props.history.push(`/detail/${id}`);
   }
 
-  componentDidUpdate(next,prev) {
-    if(prev.label == this.state.label) {
-
-    }
-    else {
-      fetch(`http://localhost:9000/getlabel?label=${this.state.label}`,{method:'get'})
-        .then(res=>res.json())
-        .then((res)=> {
-          this.setState({
-            data:res
-          })
-          console.log(res)
-        })
-    }
-  }
+  
 
   render() {
     return (
@@ -62,6 +48,23 @@ export default class literary extends React.Component {
 
           </div>
          </div>
+         <div className="shelf">
+          {
+            [this.props.location.state.item].map((item)=> (
+              <div className="book" >
+                {
+                  console.log(item)
+                }
+                <img onClick={this.showDetail.bind(this)} 
+                src={`http://localhost:9000/getbookslist/image?id=${item.bookId}${item.extName}`}/>
+                
+                <p>{item.bookname}</p>
+              </div>
+            )
+          )
+          }
+          </div>
+       
       </div>
     );
   }
