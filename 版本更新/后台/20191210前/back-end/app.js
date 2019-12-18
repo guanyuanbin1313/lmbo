@@ -20,7 +20,8 @@ var commit = require('./routes/commit.js');
 var ejs = require('ejs');
 const exphbs = require('express-handlebars');
 var userControl = require('./routes/userControl.js');
-
+var my = require('./routes/my.js');
+var mark = require('./routes/mark.js');
 // view engine setup
 app.all('*', function (req, res, next) {
 //响应头指定了该响应的资源是否被允许与给定的origin共享。*表示所有域都可以访问，同时可以将*改为指定的url，表示只有指定的url可以访问到资源
@@ -66,7 +67,9 @@ app.use('/getbookslist',getBooksList);
 app.use('/search',search);
 app.use('/getlabel',label);
 app.use('/commit',commit);
-app.use('/userControl',userControl)
+app.use('/userControl',userControl);
+app.use('/my',my);
+app.use('/markDownload',mark);
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
   next(createError(404));

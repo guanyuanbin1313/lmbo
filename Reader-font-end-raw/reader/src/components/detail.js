@@ -65,7 +65,7 @@ class Detail extends React.Component {
         </div>
         <img src={`http://localhost:9000/getbookslist/image?id=${this.state.data.bookId}${this.state.data.extName}`}></img>
         <div style={{margin:'0 auto',width:'75vw',textAlign:'left'}}><h3 className="book-detail">{this.state.data.detail}</h3></div>
-        <Button type="primary" icon="download" size='large' onClick={()=>{window.open(this.state.data.shareLink)}}>
+        <Button type="primary" icon="download" size='large' onClick={()=>{fetch(`http://localhost:9000/markDownload?id=${this.state.data.bookId}&username=${this.props.username}&bookname=${this.state.data.bookname}`,{method:'get'});window.open(this.state.data.shareLink)}}>
         下载图书
         </Button>
         <h3 style={{paddingBottom:'30px'}}>分享密码:{this.state.data.linkSecret}</h3>
