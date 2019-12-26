@@ -79,7 +79,7 @@ export default class Login extends React.Component {
         <Input onChange={(event)=> this.usernameInputChange(event)} id='username' placeholder="请输入用户名" type="text" name="username"></Input>{this.state.userNameError}
         <Input onChange={(event)=> this.passwordInputChange(event)} style={{margin:"1vh 0 1vh 0"}} placeholder="请输入密码" name="password" type="password"></Input>
       </form>
-      <button onClick={()=> this.login()} style={{height:'3vh',width:'40%',border:'none'}}>登录</button>
+      <button onClick={()=> this.login()} style={{color:'white',height:'3vh',width:'40%',border:'none',backgroundColor:'green'}}>登录</button>
       </div>
     )
 

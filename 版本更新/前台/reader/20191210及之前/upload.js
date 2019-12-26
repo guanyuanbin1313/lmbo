@@ -1,6 +1,6 @@
 import React from 'react';
 import {HashRouter as Router,Route,Link,Redirect,Switch} from 'react-router-dom'
-
+/** */
 export default function() {
   return(
     <div>
@@ -10,7 +10,7 @@ export default function() {
         <input type="submit" value="上传"/>
       </form>
       <form action="http://localhost:9000/upload" method='POST' style={{width:"100%",height:"80vw",backgroundColor:'rgb(237,237,237)'}}>
-        <div style={{width:"100%",height:"3vw",backgroundColor:'#fff'}}>
+      <div style={{width:"100%",height:"3vw",backgroundColor:'#fff'}}>
           <p style={{marginLeft:'3vw',marginTop:'1vw',color:'rgb(102,102,102)'}}>
             <img style={{width:'2vw'}} src="./img/home.png"></img>
             <Link style={{marginLeft:'1vw',fontSize:'1.2vw',color:'rgb(102,102,102)'}}>首页</Link>&nbsp;&nbsp;&nbsp;>&nbsp;&nbsp;&nbsp;

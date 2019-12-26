@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <html class="x-admin-sm">
-    
+
     <head>
         <meta charset="UTF-8">
         <title>欢迎页面-X-admin2.2</title>
@@ -12,7 +12,7 @@
         <script src="/layui/layui.js" charset="utf-8"></script>
         <script type="text/javascript" src="/javascripts/xadmin.js"></script>
     </head>
-    
+
     <body>
         <div class="x-nav">
             <span class="layui-breadcrumb">
@@ -91,7 +91,7 @@
                                             <td class="td-manage">
                                                 <a title="查看" onclick="xadmin.open('编辑','order-view.html')" href="javascript:;">
                                                     <i class="layui-icon">&#xe63c;</i></a>
-                                                    <a title="删除" onclick="member_del(this,'<%= data[i].bookId%>')" href="javascript:;">
+                                                <a title="删除" onclick="member_del(this,<%= data[i].bookId%>)" href="javascript:;">
                                                     <i class="layui-icon">&#xe640;</i></a>
                                             </td>
                                         </tr>
@@ -137,7 +137,7 @@
                 $.ajax({
                     type:'get',
                     url:`http://localhost:9000/book/delete/${id}`,
-                   
+
                     dataType:'json',
                     success:function(data){
                         layer.closeAll('dialog');
@@ -167,3 +167,4 @@
         }</script>
 
 </html>
+tml>

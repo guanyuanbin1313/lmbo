@@ -294,3 +294,16 @@ body h2 {
     width:40vw;
   }
 }
+
+
+
+.download-container {
+  width:60vw;
+  height:70vh;
+  background-color: white;
+  float:right;
+  margin-right:8vw;
+  margin-top:4vh;
+  border-radius:10px;
+
+}

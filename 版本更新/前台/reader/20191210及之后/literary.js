@@ -1,4 +1,5 @@
 import React from 'react';
+import ReactDOM from "react-dom";
 import '../App.css';
 
 export default class literary extends React.Component {
@@ -30,7 +31,21 @@ export default class literary extends React.Component {
     this.props.history.push(`/detail/${id}`);
   }
 
-  
+  componentDidUpdate(next,prev) {
+    if(prev.label == this.state.label) {
+
+    }
+    else {
+      fetch(`http://localhost:9000/getlabel?label=${this.state.label}`,{method:'get'})
+        .then(res=>res.json())
+        .then((res)=> {
+          this.setState({
+            data:res
+          })
+          console.log(res)
+        })
+    }
+  }
 
   render() {
     return (

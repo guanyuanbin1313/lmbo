@@ -12,6 +12,10 @@ import BooksShelf from './components/shelf.js';
 import SearchResult from './components/search.js';
 import Nav from './components/nav.js';
 import Label from './components/label.js';
+import My from './components/personal.js';
+import Download  from './components/download.js';
+import Myupload from './components/myupload.js';
+import Welcome from './components/welcome.js';
 const {Search} = Input;
 
 export default class App  extends React.Component{
@@ -49,13 +53,17 @@ export default class App  extends React.Component{
     return (
       <HashRouter>
         <Route path='/' component={Nav}/>
-        <Route exact path="/" component={Label}/>
         <Route exact path='/' component={BooksShelf}/>
         <Route path="/register" component={Register}/>
         <Route path="/login" component={Login}/>
         <Route path="/upload" component={Upload}/>
         <Route path="/detail/:id" component={Detail}/>
         <Route path="/search/:id" component={SearchResult}/>
+        <Route path="/my" component={My}/>
+        <Route exact path="/my" component={Welcome}/>
+        <Route path='/my/download/:username' component={Download}/>
+        <Route path="/my/upload/:username" component={Myupload}/>
+        <Route path="/label/:name" component={Label}/>
       </HashRouter>
     );
 
