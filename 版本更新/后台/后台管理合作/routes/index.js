@@ -173,7 +173,7 @@ router.post("/booksearch",function(req,res,next){
       if(err){
           res.send("查询失败: "+err);
       }else{
-          res.render("order-list.html",{title:"用户列表",data:result});
+          res.render("order-list.html",{data:result});
       }
   });
 })
